@@ -18,7 +18,7 @@ install_list="
 	sublime-text
 	vim
 	vlc
-	wine
+	wine1.8
 	winetricks
 "
 libs_list="
@@ -48,7 +48,7 @@ if [ $UID -ne $ROOT_UID ]
 then
 	echo "Root rights needed"
 else
-	add-apt-repository ppa:wine/wine-builds
+	add-apt-repository ppa:ubuntu-wine/ppa
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	apt-get update
 	apt-get install $install_list
