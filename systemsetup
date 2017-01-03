@@ -10,7 +10,6 @@ install_list="
 	gcc
 	git
 	nmon
-	opera-stable
 	perl
 	pinta
 	playonlinux
