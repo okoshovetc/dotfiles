@@ -5,11 +5,13 @@ install_list="
 	--install-recommends winehq-staging
 	adobe-flashplugin
 	audacity
+	build-essential
 	g++
 	gcc
 	git
 	nmon
 	opera-stable
+	perl
 	pinta
 	playonlinux
 	qbittorrent
@@ -33,5 +35,6 @@ else
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	apt-get update
 	apt-get install $install_list
+	apt-get upgrade
 	echo -e $vimrc > .vimrc
 fi
