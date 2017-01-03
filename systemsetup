@@ -9,6 +9,7 @@ install_list="
 	gcc
 	git
 	nmon
+	opera-stable
 	pinta
 	playonlinux
 	qbittorrent
