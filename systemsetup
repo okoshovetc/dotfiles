@@ -1,0 +1,36 @@
+#!/bin/bash
+
+ROOT_UID=0
+install_list="
+	--install-recommends winehq-staging
+	adobe-flashplugin
+	audacity
+	g++
+	gcc
+	git
+	nmon
+	pinta
+	playonlinux
+	qbittorrent
+	steam
+	sublime-text
+	vim
+	vlc
+"
+
+vimrc="
+	set nu \n\
+set tabstop=4 \n\
+set autoindent
+"
+
+if [ $UID -ne $ROOT_UID ]
+then
+	echo "Root rights needed"
+else
+	add-apt-repository ppa:wine/wine-builds
+	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+	apt-get update
+	apt-get install $install_list
+	echo -e $vimrc > .vimrc
+fi
