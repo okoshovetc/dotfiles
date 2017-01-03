@@ -6,6 +6,7 @@ install_list="
 	adobe-flashplugin
 	audacity
 	build-essential
+	cmake
 	g++
 	gcc
 	git
@@ -18,6 +19,22 @@ install_list="
 	sublime-text
 	vim
 	vlc
+"
+libs_list="
+g++-multilib
+gcc-multilib
+libasound2-dev:i386
+libgsm1-dev:i386
+libjpeg8-dev:i386
+liblcms2-dev:i386
+libldap2-dev:i386
+libmpg123-dev:i386
+libopenal-dev:i386
+libv4l-dev:i386
+libx11-dev:i386
+libxinerama-dev:i386
+libxml2-dev:i386
+zlib1g-dev:i386
 "
 
 vimrc="
@@ -34,6 +51,7 @@ else
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	apt-get update
 	apt-get install $install_list
+	apt-get install $libs_list
 	apt-get upgrade
 	echo -e $vimrc > .vimrc
 fi
