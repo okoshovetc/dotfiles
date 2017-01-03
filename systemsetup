@@ -2,7 +2,6 @@
 
 ROOT_UID=0
 install_list="
-	--install-recommends winehq-staging
 	adobe-flashplugin
 	audacity
 	build-essential
@@ -19,6 +18,8 @@ install_list="
 	sublime-text
 	vim
 	vlc
+	wine
+	winetricks
 "
 libs_list="
 g++-multilib
