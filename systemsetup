@@ -10,6 +10,7 @@ install_list="
 	gcc
 	git
 	nmon
+	opera-stable
 	perl
 	pinta
 	playonlinux
@@ -50,6 +51,8 @@ then
 else
 	add-apt-repository ppa:ubuntu-wine/ppa
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+	add-apt-repository "deb http://deb.opera.com/opera/ stable non-free"
+	wget -O - http://deb.opera.com/archive.key | sudo apt-key add -
 	apt-get update
 	apt-get install $install_list
 	apt-get install $libs_list
