@@ -17,6 +17,7 @@ install_list="
 	qbittorrent
 	steam
 	sublime-text
+	virtualbox-qt
 	vim
 	vlc
 	wine1.8
