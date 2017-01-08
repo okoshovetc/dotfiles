@@ -29,6 +29,7 @@ gcc-multilib
 libasound2-dev:i386
 libfreetype6-dev:i386
 libglu1-mesa:i386
+libgnutls28-dev:i386
 libgsm1-dev:i386
 libgtk2.0-0:i386
 libjpeg8-dev:i386
@@ -43,6 +44,10 @@ libv4l-dev:i386
 libx11-dev:i386
 libxinerama-dev:i386
 libxml2-dev:i386
+libxrender-dev:i386
+libxrender1-dbg:i386
+libxslt1-dbg:i386
+libxslt1-dev:i386
 zlib1g-dev:i386
 "
 
