@@ -5,6 +5,7 @@ install_list="
 	adobe-flashplugin
 	audacity
 	build-essential
+	cheese
 	cmake
 	g++
 	gcc
