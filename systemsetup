@@ -10,14 +10,16 @@ install_list="
 	g++
 	gcc
 	git
+	htop
 	nmon
-	opera-stable
 	perl
 	pinta
 	playonlinux
 	qbittorrent
+	screen
 	steam
 	sublime-text
+	tmux
 	virtualbox-qt
 	vim
 	vlc
@@ -64,11 +66,9 @@ then
 else
 	add-apt-repository ppa:ubuntu-wine/ppa
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-	add-apt-repository "deb http://deb.opera.com/opera/ stable non-free"
-	wget -O - http://deb.opera.com/archive.key | sudo apt-key add -
 	apt-get update
 	apt-get install $install_list
 	apt-get install $libs_list
 	apt-get upgrade
-	echo -e $vimrc > .vimrc
+	echo -e $vimrc > ~/.vimrc
 fi
