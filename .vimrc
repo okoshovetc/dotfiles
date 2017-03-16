@@ -1,0 +1,1 @@
+/home/okoshovets/.vimrc

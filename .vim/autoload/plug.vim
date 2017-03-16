@@ -1,0 +1,1 @@
+/home/okoshovets/.vim/autoload/plug.vim
