@@ -2,13 +2,13 @@
 
 ROOT_UID=0
 install_list="
-	adobe-flashplugin
 	audacity
 	build-essential
 	cheese
 	cmake
 	g++
 	gcc
+	gcl
 	git
 	htop
 	nmon
@@ -18,13 +18,10 @@ install_list="
 	qbittorrent
 	screen
 	steam
-	sublime-text
 	tmux
 	virtualbox-qt
 	vim
 	vlc
-	wine1.8
-	winetricks
 "
 libs_list="
 g++-multilib
@@ -54,21 +51,13 @@ libxslt1-dev:i386
 zlib1g-dev:i386
 "
 
-vimrc="
-	set nu \n\
-set tabstop=4 \n\
-set autoindent
-"
-
 if [ $UID -ne $ROOT_UID ]
 then
 	echo "Root rights needed"
 else
-	add-apt-repository ppa:ubuntu-wine/ppa
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	apt-get update
 	apt-get install $install_list
 	apt-get install $libs_list
 	apt-get upgrade
-	echo -e $vimrc > ~/.vimrc
 fi
