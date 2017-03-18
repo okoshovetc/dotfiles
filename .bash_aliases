@@ -1,1 +1,0 @@
-/home/okoshovets/.bash_aliases
