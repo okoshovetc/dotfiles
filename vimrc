@@ -25,4 +25,9 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 colorscheme lyla
 
+nmap <F2> :tabnext<CR>
+nmap <F3> :tabprevious<CR>
+nmap <F4> :tabclose<CR>
+
+nmap <C-F2> :colorscheme molokai<CR>
 silent! nmap <C-n> :NERDTreeToggle<CR>
