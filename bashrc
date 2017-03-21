@@ -5,6 +5,10 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+	. ~/.git-completion.bash 
+fi
+
 #colors
 GREEN="\[$(tput setaf 47)\]"
 RED="\[$(tput setaf 160)\]"
