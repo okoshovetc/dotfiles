@@ -18,6 +18,9 @@ set autoindent
 set hlsearch
 set incsearch
 
+set listchars=eol:┐,tab:▹\ 
+set list
+
 set fileencodings=utf8,cp1251
 
 set t_Co=256
