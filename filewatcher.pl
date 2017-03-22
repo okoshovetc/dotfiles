@@ -4,19 +4,34 @@ use warnings;
 
 use POSIX ":sys_wait_h";
 use Data::Dumper;
+use Getopt::Long;
 
 # hash that contains all the files we need to track as keys
 # and timestamp of their last modifies as values
-my $filenames = {
-	'filewatcher.pl' => 1,
-	'towatch' => 1
-};
 
+my $filenames = {};
+my $callback = '';
+my $config_file = '';
 my $child = undef;
-my $read_fh, my $write_fh;
 
-my $callback = "clear && echo -e 'Shla_sasha_po_shosse\n'";
+GetOptions(
+	'config=s' => \$config_file,
+	'call=s' => \$callback
+);
 
+if ($config_file) {
+	open (my $fh, '<', $config_file);
+	while (<$fh>) {
+		if (m/^callback: (.*)/) {
+			$callback ||= $1;
+		} else {
+			chomp;
+			$filenames->{$_} = 1;
+		}
+	}
+}
+
+$callback ||= "echo 'The big brown fox jumps over the lazy dog'";
 
 sub refreshTime {
 	for (keys %$filenames) {
