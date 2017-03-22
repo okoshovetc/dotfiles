@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 
+use POSIX ":sys_wait_h";
 use Data::Dumper;
 
 # hash that contains all the files we need to track as keys
@@ -14,7 +15,7 @@ my $filenames = {
 my $child = undef;
 my $read_fh, my $write_fh;
 
-my $callback = "echo Shla_sasha_po_shosse";
+my $callback = "clear && echo -e 'Shla_sasha_po_shosse\n'";
 
 
 sub refreshTime {
@@ -31,7 +32,6 @@ sub checkChanges {
 		$action_flag ||= ($filenames->{$_} != $modify);
 	}
 	if ($action_flag) {
-		print "SMTHING CHANGED\n";
 		refreshTime();
 	};
 	return $action_flag;
@@ -41,42 +41,19 @@ sub makeCallback {
 	my ($callback) = @_;
 	if (defined $child) {
 		kill('KILL', $child);
+		while (waitpid(-1, WNOHANG) > 0){};
 	};
-	if (defined $read_fh) {
-		close $read_fh;
-	};
-	if (defined $write_fh) {
-		close $write_fh;
-	}
-	pipe($read_fh, $write_fh);
 	if ($child = fork) {
-		close $write_fh;
-		#open($read_fh, '>&', STDOUT);
-		while (<$read_fh>) {
-			print "FROM PIPE: $_";
-			last;
-		}
 	} else {
-		close $read_fh;
-		select $write_fh;
-		#open(STDOUT, '>', $write_fh);
-		exec($callback);
+		system($callback);
+		kill('KILL', $$);
 	}
 }
 
 refreshTime();
 while (1) {
 	if (checkChanges()) {
-		print "GOING TO CALLBACK\n";
 		makeCallback($callback);
 	}
 	sleep 1;
 };
-print Dumper $filenames;
-__END__
-while (1) {
-	@stat_arr = stat($filename);
-	checkChanges("testcmnd");
-	sleep 1;
-}
-
