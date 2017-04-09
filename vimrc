@@ -1,6 +1,7 @@
 call plug#begin()
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 	Plug 'kien/ctrlp.vim' 
+	Plug 'imomaliev/registers.vim' 
 	"colorschemes
 	
 call plug#end()
