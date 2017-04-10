@@ -12,11 +12,13 @@ use Getopt::Long;
 my $filenames = {};
 my $callback = '';
 my $config_file = '';
+my $input_flag = 0;
 my $child = undef;
 
 GetOptions(
 	'config=s' => \$config_file,
-	'call=s' => \$callback
+	'call=s' => \$callback,
+	'input' => \$input_flag
 );
 
 if ($config_file) {
@@ -30,6 +32,16 @@ if ($config_file) {
 		}
 	}
 }
+
+if ($input_flag) {
+	while (<>) {
+		chomp;
+		print $_ . "\n";
+		$filenames->{$_} = 1;
+	}
+}
+
+print Dumper $filenames;
 
 $callback ||= "echo 'The big brown fox jumps over the lazy dog'";
 
