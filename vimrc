@@ -1,9 +1,6 @@
 call plug#begin()
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 	Plug 'kien/ctrlp.vim' 
-	Plug 'imomaliev/registers.vim' 
-	"colorschemes
-	
 call plug#end()
 
 set nocompatible
@@ -15,8 +12,8 @@ silent! nmap <C-n> :NERDTreeToggle<CR>
 
 "mappings for tabs
 "no mapping for tabnew because idk
-nmap <F2> :tabnext<CR>
-nmap <F3> :tabprevious<CR>
+nmap <F2> :tabprevious<CR>
+nmap <F3> :tabnext<CR>
 nmap <F4> :tabclose<CR>
 
 "mappings for arrow keys
@@ -29,6 +26,15 @@ imap <up> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 imap <down> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 imap <right> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 imap <left> <ESC> :echo 'HEXOPOWO ATATA'<CR>
+
+set laststatus=2
+set statusline+=%f
+set lazyredraw
+set cursorline
+set showcmd
+
+"makes vim use bash aliases
+set shellcmdflag=-ic
 
 "recursive search when :find is used
 set path+=**
@@ -43,6 +49,7 @@ set shiftwidth=4
 set autoindent
 set hlsearch
 set incsearch
+set showmatch
 
 "nice tool to trace tabs and eols
 set listchars=eol:┐,tab:▹\ 
