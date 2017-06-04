@@ -1,6 +1,10 @@
 call plug#begin()
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	Plug 'kien/ctrlp.vim' 
+	Plug 'kien/ctrlp.vim'
+	"colorschemes
+	Plug 'Haron-Prime/evening_vim'
+	Plug 'smancill/darkglass'
+	Plug 'fsrc/lyla-vim'
 call plug#end()
 
 set nocompatible
@@ -28,7 +32,7 @@ imap <right> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 imap <left> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 
 set laststatus=2
-set statusline+=%f
+set statusline=%f
 set lazyredraw
 set cursorline
 set showcmd
@@ -43,8 +47,8 @@ set path+=**
 set wildmenu
 
 "numbers, tabstops and search
-set nu 
-set tabstop=4 
+set nu
+set tabstop=4
 set shiftwidth=4
 set autoindent
 set hlsearch
@@ -62,4 +66,5 @@ set fileencodings=utf8,cp1251
 set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-colorscheme lyla
+set background=dark
+colorscheme evening
