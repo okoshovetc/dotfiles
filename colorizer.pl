@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 use strict;
 use warnings;
 
@@ -19,13 +20,21 @@ my $fonts = {
 
 my $config_file = '';
 my $call = '';
-my $extra = '';
+my $extra = {
+	blue => '',
+	green => '',
+	red => '',
+	yellow => '',
+	default => '',
+};
 my $grep_cascade = '';
 
 sub grep_append {
 	my $curr = shift;
 	if ($curr =~ m/(.*?);(.*?) (.*)/) {
 		return " | GREP_COLOR='$fonts->{$1};$colors->{$2}' grep --line-buffered -P \"($3)?\" --color=always";
+	} elsif ($curr =~ m/hide (.*)/) {
+		return " | grep --line-buffered -vP \"$1\"";
 	} else {
 		return " | grep -P \"($curr)?\"";
 	}
@@ -34,8 +43,16 @@ sub grep_append {
 GetOptions(
 	'config=s' => \$config_file,
 	'call=s' => \$call,
-	'extra=s' => \$extra,
+	'extra=s' => \$extra->{blue},
+	'extragreen=s' => \$extra->{green},
+	'extrared=s' => \$extra->{red},
+	'extrayellow=s' => \$extra->{yellow},
+	'extralblue=s' => \$extra->{lblue},
+	'extraviolet=s' => \$extra->{violet},
 );
+
+use Data::Dumper;
+warn Dumper $extra;
 
 if ($config_file) {
 	open (my $fh, '<', $config_file);
@@ -55,9 +72,11 @@ while (my $curr = shift) {
 	$grep_cascade .= grep_append($curr);	
 }
 
-if ($extra) {
-	$grep_cascade .=  "| GREP_COLOR='07;32' grep --line-buffered -P \"($extra)?\" --color=always"
+for (keys %$extra) {
+	if ($extra->{$_}) {
+		$grep_cascade .=  "| GREP_COLOR='07;'$colors->{$_} grep --line-buffered -P \"($extra->{$_})?\" --color=always"
+	}
 }
 
-print $call . $grep_cascade, "\n";
+#print $call . $grep_cascade, "\n";
 system($call . $grep_cascade);

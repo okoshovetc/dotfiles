@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+no warnings 'uninitialized';
 
 use POSIX ":sys_wait_h";
 use Data::Dumper;
@@ -36,12 +37,9 @@ if ($config_file) {
 if ($input_flag) {
 	while (<>) {
 		chomp;
-		print $_ . "\n";
 		$filenames->{$_} = 1;
 	}
 }
-
-print Dumper $filenames;
 
 $callback ||= "echo 'The big brown fox jumps over the lazy dog'";
 
