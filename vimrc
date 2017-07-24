@@ -3,6 +3,7 @@ call plug#begin()
 	Plug 'kien/ctrlp.vim'
 	"colorschemes
 	Plug 'Haron-Prime/evening_vim'
+	Plug 'liuchengxu/space-vim-dark'
 	Plug 'smancill/darkglass'
 	Plug 'fsrc/lyla-vim'
 call plug#end()
@@ -12,24 +13,25 @@ filetype plugin on
 
 "mappings for NERDTree
 nmap <C-F2> :colorscheme molokai<CR>
-silent! nmap <C-n> :NERDTreeToggle<CR>
 
 "mappings for tabs
 "no mapping for tabnew because idk
 nmap <F2> :tabprevious<CR>
 nmap <F3> :tabnext<CR>
 nmap <F4> :tabclose<CR>
+nmap <F5> <C-w><C-]>
+nmap <F6> <C-w><C-]><C-w>T
 
 "mappings for arrow keys
-map <up> :echo 'HEXOPOWO ATATA'<CR>
-map <down> :echo 'HEXOPOWO ATATA'<CR>
-map <right> :echo 'HEXOPOWO ATATA'<CR>
-map <left> :echo 'HEXOPOWO ATATA'<CR>
-
-imap <up> <ESC> :echo 'HEXOPOWO ATATA'<CR>
-imap <down> <ESC> :echo 'HEXOPOWO ATATA'<CR>
-imap <right> <ESC> :echo 'HEXOPOWO ATATA'<CR>
-imap <left> <ESC> :echo 'HEXOPOWO ATATA'<CR>
+"map <up> :echo 'HEXOPOWO ATATA'<CR>
+"map <down> :echo 'HEXOPOWO ATATA'<CR>
+"map <right> :echo 'HEXOPOWO ATATA'<CR>
+"map <left> :echo 'HEXOPOWO ATATA'<CR>
+"
+"imap <up> <ESC> :echo 'HEXOPOWO ATATA'<CR>
+"imap <down> <ESC> :echo 'HEXOPOWO ATATA'<CR>
+"imap <right> <ESC> :echo 'HEXOPOWO ATATA'<CR>
+"imap <left> <ESC> :echo 'HEXOPOWO ATATA'<CR>
 
 set laststatus=2
 set statusline=%f
@@ -38,7 +40,7 @@ set cursorline
 set showcmd
 
 "makes vim use bash aliases
-set shellcmdflag=-ic
+set shellcmdflag=-c
 
 "recursive search when :find is used
 set path+=**
@@ -66,5 +68,12 @@ set fileencodings=utf8,cp1251
 set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+colorscheme space-vim-dark
 set background=dark
-colorscheme evening
+set background=light
+
+"commands
+command! W w | silent exec "! /usr/local/apache/bin/apachectl-perl-o.koshovets restart" | redraw
+command! D w | silent exec "! /home/sites/o.koshovets.money.mail.ru/money_public/restart_daemon.sh" | redraw
+command! Checkout silent exec "!git checkout \"%\"" | e! | redraw
+command! AddGit w | silent exec "!git add \"%\"" | redraw
