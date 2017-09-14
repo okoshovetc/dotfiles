@@ -6,13 +6,11 @@ call plug#begin()
 	Plug 'liuchengxu/space-vim-dark'
 	Plug 'smancill/darkglass'
 	Plug 'fsrc/lyla-vim'
+	Plug 'raphamorim/lucario'
 call plug#end()
 
 set nocompatible
 filetype plugin on
-
-"mappings for NERDTree
-nmap <C-F2> :colorscheme molokai<CR>
 
 "mappings for tabs
 "no mapping for tabnew because idk
@@ -58,7 +56,7 @@ set incsearch
 set showmatch
 
 "nice tool to trace tabs and eols
-set listchars=eol:┐,tab:▹\ 
+set listchars=eol:┐,tab:>.
 set list
 
 "fileencodings to use
@@ -73,7 +71,6 @@ set background=dark
 set background=light
 
 "commands
-command! W w | silent exec "! /usr/local/apache/bin/apachectl-perl-o.koshovets restart" | redraw
-command! D w | silent exec "! /home/sites/o.koshovets.money.mail.ru/money_public/restart_daemon.sh" | redraw
 command! Checkout silent exec "!git checkout \"%\"" | e! | redraw
-command! AddGit w | silent exec "!git add \"%\"" | redraw
+command! GitAdd w | silent exec "!git add \"%\"" | redraw
+command! GitDiff exec "! git diff \"%\""

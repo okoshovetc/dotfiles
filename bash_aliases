@@ -1,12 +1,13 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-
-alias ls="ls --color=auto"
-alias ll="ls -l"
-alias la="ls -a"
+alias grep="grep --color"
 alias cl="clear"
-
-alias chkt="git checkout"
-
+alias home="cd $HOME"
+alias logs="~/scripts/colorizer.pl --config ~/scripts/logs.conf"
+alias mylogs="color --config ~/scripts/custom_logs.conf"
+alias color="~/scripts/colorizer.pl"
+alias watcher="~/scripts/filewatcher.pl"
+alias mygrep="color --config ~/scripts/mygrep.conf"
 alias tmux="tmux -2"
+alias gotmux="~/gotmux.sh"

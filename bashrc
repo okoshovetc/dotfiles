@@ -5,6 +5,10 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+	. ~/.git-completion.bash 
+fi
+
 #colors
 GREEN="\[$(tput setaf 28)\]"
 RED="\[$(tput setaf 124)\]"
@@ -21,10 +25,10 @@ BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1=\
-"${VIOLET}[\A] ${GREEN}\H \
-${ORANGE}${BOLD}\u${RESET}\
-${RED}@${BLUE}\w\n\
-${BLUE}${BOLD}>>>>${RESET}"
+"${VIOLET}[\A] ${LIGHT_BLUE}\H \
+${PINK}${BOLD}\u${RESET}\
+${RED}@${VIOLET}\w\n\
+${YELLOW}${BOLD}>>>>${RESET}"
 
 export PS1
 export TERM
