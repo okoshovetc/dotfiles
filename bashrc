@@ -25,10 +25,16 @@ BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1=\
-"${VIOLET}[\A] ${LIGHT_BLUE}\H \
-${PINK}${BOLD}\u${RESET}\
-${RED}@${VIOLET}\w\n\
-${YELLOW}${BOLD}>>>>${RESET}"
+"${YELLOW}[\A] ${GREEN}\H \
+${LIGHT_BLUE}${BOLD}\u${RESET}\
+${RED}@${LIGHT_BLUE}\w\n\
+${VIOLET}${BOLD}WIN87>>${RESET}"
+
+source /opt/rh/perl516/enable
+
+PATH=$PATH:~/.PATH
+EDITOR='vim'
 
 export PS1
 export TERM
+export EDITOR
