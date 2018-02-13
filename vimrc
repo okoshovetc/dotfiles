@@ -44,7 +44,6 @@ set showcmd
 "folding
 set foldmethod=indent
 
-"makes vim use bash aliases
 set shellcmdflag=-c
 
 "recursive search when :find is used
@@ -63,8 +62,11 @@ set incsearch
 set showmatch
 
 "nice tool to trace tabs and eols
-set listchars=tab:>.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\S\zs\s\+$/
+set listchars=tab:>.,trail:$
 set list
+
 
 "fileencodings to use
 set fileencodings=utf8,cp1251
