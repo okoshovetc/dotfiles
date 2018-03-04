@@ -57,7 +57,7 @@ then
 else
 	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	apt-get update
-	apt-get install $install_list
 	apt-get install $libs_list
+	apt-get install $install_list
 	apt-get upgrade
 fi
