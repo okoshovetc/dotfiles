@@ -106,6 +106,9 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
+set $monitor1 DVI-I-1
+set $monitor2 VGA-1
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -118,17 +121,17 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-workspace $workspace1 output eDP-1
-workspace $workspace3 output eDP-1
-workspace $workspace5 output eDP-1
-workspace $workspace7 output eDP-1
-workspace $workspace9 output eDP-1
+workspace $workspace1 output $monitor1
+workspace $workspace3 output $monitor1
+workspace $workspace5 output $monitor1
+workspace $workspace7 output $monitor1
+workspace $workspace9 output $monitor1
 
-workspace $workspace2  output DP-1
-workspace $workspace4  output DP-1
-workspace $workspace6  output DP-1
-workspace $workspace8  output DP-1
-workspace $workspace10 output DP-1
+workspace $workspace2  output $monitor2
+workspace $workspace4  output $monitor2
+workspace $workspace6  output $monitor2
+workspace $workspace8  output $monitor2
+workspace $workspace10 output $monitor2
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -210,4 +213,5 @@ bindsym $mod+t exec ~/Downloads/Telegram/Telegram
 
 exec_always "setxkbmap -layout us,ru"
 exec_always "setxkbmap -option 'grp:caps_toggle'"
-exec_always "feh --bg-scale ~/Pictures/462463.jpg"
+exec_always "xrandr --output $monitor2 --above $monitor1"
+exec_always "feh --bg-scale ~/.config/i3/wallpapers/image_2017-11-16_01-37-22.png"

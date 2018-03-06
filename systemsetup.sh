@@ -55,9 +55,8 @@ if [ $UID -ne $ROOT_UID ]
 then
 	echo "Root rights needed"
 else
-	add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-	apt-get update
-	apt-get install $libs_list
-	apt-get install $install_list
-	apt-get upgrade
+	dnf update -y
+	dnf install -y $libs_list
+	dnf install -y $install_list
+	dnf upgrade -y
 fi
