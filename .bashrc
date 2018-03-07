@@ -35,6 +35,8 @@ source /opt/rh/perl516/enable
 PATH=$PATH:~/.PATH
 EDITOR='vim'
 
+set -o vi
+
 export PS1
 export TERM
 export EDITOR
