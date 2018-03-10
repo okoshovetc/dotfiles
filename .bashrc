@@ -25,10 +25,10 @@ BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1=\
-"${YELLOW}[\A] ${GREEN}\H \
-${LIGHT_BLUE}${BOLD}\u${RESET}\
-${RED}@${LIGHT_BLUE}\w\n\
-${VIOLET}${BOLD}WIN87>>${RESET}"
+"${PINK}[\A] ${BLUE}\H \
+${GREEN}${BOLD}\u${RESET}\
+${ORANGE}@${BLUE}\w\n\
+${PINK}${BOLD}>>>>${RESET}"
 
 source /opt/rh/perl516/enable
 
