@@ -78,6 +78,12 @@ highlight nonText ctermbg=NONE
 colorscheme gruvbox
 set background=dark
 
+"this is promissing to fix problem with cyrillic
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
 "commands
 command! Checkout silent exec "!git checkout \"%\"" | e! | redraw
 command! GitAdd w | silent exec "!git add \"%\"" | redraw
