@@ -40,3 +40,4 @@ set -o vi
 export PS1
 export TERM
 export EDITOR
+export LANG=en_US.UTF-8
