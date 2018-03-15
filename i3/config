@@ -209,7 +209,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym Ctrl+Mod1+l exec i3lock -c 333333
+bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.1 && setxkbmap -layout us,ru && i3lock -c 395889"
 
 bindsym $mod+t exec ~/Downloads/Telegram/Telegram
 
