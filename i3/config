@@ -109,6 +109,8 @@ set $workspace10 "10"
 set $monitor1 DVI-I-1
 set $monitor2 VGA-1
 
+bindsym $mod+m move workspace to output up
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -211,7 +213,6 @@ bindsym Ctrl+Mod1+l exec i3lock -c 333333
 
 bindsym $mod+t exec ~/Downloads/Telegram/Telegram
 
-exec_always "setxkbmap -layout us,ru"
-exec_always "setxkbmap -option 'grp:caps_toggle'"
+exec_always "setxkbmap -layout us,ru -option 'grp:caps_toggle'"
 exec_always "xrandr --output $monitor2 --above $monitor1"
 exec_always "feh --bg-scale ~/.config/i3/wallpapers/image_2017-11-16_01-37-22.png"
