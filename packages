@@ -2,6 +2,7 @@ audacity
 build-essential
 cheese
 cmake
+cpan
 g++
 gcc
 gcl
@@ -14,8 +15,12 @@ pinta
 playonlinux
 qbittorrent
 screen
+scrot
+sshfs
 steam
 tmux
-virtualbox-qt
 vim
+virtualbox-qt
 vlc
+wine
+winetricks
