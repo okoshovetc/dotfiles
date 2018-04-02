@@ -8,6 +8,7 @@ call plug#begin()
 	Plug 'raphamorim/lucario'
 	Plug 'tbastos/vim-lua'
 	Plug 'morhetz/gruvbox'
+	Plug 'okoshovetc/yvcs'
 call plug#end()
 
 let g:ctrlp_working_path_mode = 0
@@ -75,8 +76,8 @@ set fileencodings=utf8,cp1251
 set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-colorscheme gruvbox
 set background=dark
+colorscheme yvcs
 
 "this is promissing to fix problem with cyrillic
 set keymap=russian-jcukenwin
