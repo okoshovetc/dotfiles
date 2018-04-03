@@ -2,10 +2,7 @@ call plug#begin()
 	Plug 'kien/ctrlp.vim'
 	"colorschemes
 	Plug 'Haron-Prime/evening_vim'
-	Plug 'liuchengxu/space-vim-dark'
-	Plug 'smancill/darkglass'
 	Plug 'fsrc/lyla-vim'
-	Plug 'raphamorim/lucario'
 	Plug 'tbastos/vim-lua'
 	Plug 'morhetz/gruvbox'
 	Plug 'okoshovetc/yvcs'
@@ -63,11 +60,8 @@ set incsearch
 set showmatch
 
 "nice tool to trace tabs and eols
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\S\zs\s\+$/
-set listchars=tab:>.,trail:$
+set listchars=tab:>.,trail:.
 set list
-
 
 "fileencodings to use
 set fileencodings=utf8,cp1251
@@ -78,6 +72,12 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set background=dark
 colorscheme yvcs
+
+highlight link ExtraWhitespace Error
+autocmd BufWinEnter * match ExtraWhitespace /\S\zs\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\S\zs\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 "this is promissing to fix problem with cyrillic
 set keymap=russian-jcukenwin
