@@ -1,36 +1,34 @@
 TERM="screen-256color"
 
-#load aliases 
+#load aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
 if [ -f ~/.git-completion.bash ]; then
-	. ~/.git-completion.bash 
+	. ~/.git-completion.bash
 fi
 
 #colors
-GREEN="\[$(tput setaf 28)\]"
-RED="\[$(tput setaf 124)\]"
-YELLOW="\[$(tput setaf 184)\]"
-BLUE="\[$(tput setaf 27)\]"
-VIOLET="\[$(tput setaf 93)\]"
-LIGHT_BLUE="\[$(tput setaf 51)\]"
-ORANGE="\[$(tput setaf 130)\]"
-PINK="\[$(tput setaf 199)\]"
+GREEN="\[$(tput setaf 41)\]"
+RED="\[$(tput setaf 160)\]"
+YELLOW="\[$(tput setaf 227)\]"
+BLUE="\[$(tput setaf 33)\]"
+VIOLET="\[$(tput setaf 63)\]"
+LIGHT_BLUE="\[$(tput setaf 45)\]"
+ORANGE="\[$(tput setaf 172)\]"
+PINK="\[$(tput setaf 169)\]"
 WHITE="\[$(tput setaf 255)\]"
-GRAY="\[$(tput setaf 245)\]"
+GRAY="\[$(tput setaf 243)\]"
 #styles
 BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1=\
-"${PINK}[\A] ${BLUE}\H \
+"${PINK}[\A] ${LIGHT_BLUE}\H \
 ${GREEN}${BOLD}\u${RESET}\
-${ORANGE}@${BLUE}\w\n\
+${ORANGE}@${BOLD}${PINK}\w\n\
 ${PINK}${BOLD}>>>>${RESET}"
-
-source /opt/rh/perl516/enable
 
 PATH=$PATH:~/.PATH
 EDITOR='vim'

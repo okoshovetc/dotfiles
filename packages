@@ -1,15 +1,13 @@
 audacity
-build-essential
 cheese
 cmake
 cpan
-g++
 gcc
 gcl
 git
 htop
 nmon
-pavucontol
+pavucontrol
 perl
 pinta
 playonlinux
@@ -20,7 +18,6 @@ sshfs
 steam
 tmux
 vim
-virtualbox-qt
 vlc
 wine
 winetricks
