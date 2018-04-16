@@ -71,7 +71,7 @@ set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set background=dark
-colorscheme yvcs
+colorscheme yvpale
 
 highlight link ExtraWhitespace Error
 autocmd BufWinEnter * match ExtraWhitespace /\S\zs\s\+$/
