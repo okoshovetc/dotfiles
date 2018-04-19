@@ -194,7 +194,9 @@ bindsym $mod+shift+x exec i3lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ #increase sound volume
+bindsym $mod+Mod1+p exec amixer -D pulse sset Master 5%+ #increase sound volume
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- #decrease sound volume
+bindsym $mod+Mod1+m exec amixer -D pulse sset Master 5%- #increase sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
