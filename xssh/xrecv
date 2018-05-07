@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nc -lk localhost 2224 | perl -lnE 'qx{echo '\$_' | base64 -d  | xclip -selection clipboard}'
+nc -lk 2224|while read -r line;do echo $line|base64 -d|xclip -selection clipboard; done
