@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nc -lk localhost 2224 | perl -lnE 'qx{echo '\$_' | base64 -d  | xclip -selection clipboard}'

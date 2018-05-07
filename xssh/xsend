@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+while (<>) {
+	$D .= $_;
+}
+$D = qx{echo '$D' | base64 -w0};
+qx{echo '$D' | nc localhost 2224};
