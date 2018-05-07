@@ -1,7 +1,3 @@
-#!/usr/bin/perl
+#!/bin/bash
 
-while (<>) {
-	$D .= $_;
-}
-$D = qx{echo '$D' | base64 -w0};
-qx{echo '$D' | nc localhost 2224};
+base64 -w0 |xargs echo | nc localhost 2224

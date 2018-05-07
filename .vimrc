@@ -79,6 +79,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\S\zs\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+"workflow with system clipboard via ssh
+vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
+
 "this is promissing to fix problem with cyrillic
 set keymap=russian-jcukenwin
 set iminsert=0
