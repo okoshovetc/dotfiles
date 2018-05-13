@@ -218,4 +218,4 @@ bindsym $mod+t exec ~/Downloads/Telegram/Telegram
 
 exec_always "setxkbmap -layout us,ru -option 'grp:caps_toggle'"
 exec_always "xrandr --output $monitor2 --above $monitor1"
-exec_always "feh --bg-scale ~/.config/i3/wallpapers/image_2017-11-16_01-37-22.png"
+exec_always "feh --bg-scale ~/.config/i3/wallpapers/vim.jpg"
