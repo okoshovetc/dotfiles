@@ -66,6 +66,10 @@ set list
 "fileencodings to use
 set fileencodings=utf8,cp1251
 
+"some mappings for normal mode
+nmap gb gT
+nmap gm `
+
 "colors and stuff
 set t_Co=256
 highlight Normal ctermbg=NONE
