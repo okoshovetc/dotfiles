@@ -69,6 +69,8 @@ set fileencodings=utf8,cp1251
 "some mappings for normal mode
 nmap gb gT
 nmap gm `
+nmap <C-j> jzz
+nmap <C-k> kzz
 
 "colors and stuff
 set t_Co=256
