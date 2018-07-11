@@ -1,7 +1,8 @@
 local M = {}
 local io = require("io")
 
-M.dbg_file = "/home/o.koshovets/_/logs/custom"
+--M.dbg_file = "/home/o.koshovets/_/logs/custom"
+M.dbg_file = "/home/okoshovets/_/logs/custom"
 
 M.log = function (...)
 	local file = io.open(M.dbg_file, "a")

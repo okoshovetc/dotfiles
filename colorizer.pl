@@ -55,7 +55,7 @@ use Data::Dumper;
 warn Dumper $extra;
 
 if ($config_file) {
-	open (my $fh, '<', $config_file);
+	open (my $fh, '<', $config_file) or die "Tried to open $config_file, error: $!";
 	while (<$fh>) {
 		chomp;
 		if (m/call: (.*)/) {
