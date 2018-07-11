@@ -41,13 +41,13 @@ sub grep_append {
 };
 
 GetOptions(
-	'config=s' => \$config_file,
-	'call=s' => \$call,
-	'extra=s' => \$extra->{blue},
-	'extragreen=s' => \$extra->{green},
-	'extrared=s' => \$extra->{red},
+	'config=s'      => \$config_file,
+	'call=s'        => \$call,
+	'extra=s'       => \$extra->{blue},
+	'extragreen=s'  => \$extra->{green},
+	'extrared=s'    => \$extra->{red},
 	'extrayellow=s' => \$extra->{yellow},
-	'extralblue=s' => \$extra->{lblue},
+	'extralblue=s'  => \$extra->{lblue},
 	'extraviolet=s' => \$extra->{violet},
 );
 
@@ -69,7 +69,7 @@ if ($config_file) {
 $call ||= "echo 'The quick brown fox jumps over the lazy dog'";
 
 while (my $curr = shift) {
-	$grep_cascade .= grep_append($curr);	
+	$grep_cascade .= grep_append($curr);
 }
 
 for (keys %$extra) {
