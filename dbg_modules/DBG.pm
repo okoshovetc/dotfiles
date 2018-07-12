@@ -1,4 +1,4 @@
-package Olejik::DBG;                                                                                                                             
+package Olejik::DBG;
 
 BEGIN {
 	use base 'Exporter';
@@ -65,7 +65,7 @@ sub ocallerlog {
 	_rawWrite(oCaller(shift));
 }
 sub _formMesage {
-	return '[INFO] ' . (shift) . "\n";
+	return '[PERL] ' . (shift) . "\n";
 }
 
 sub _rawWrite {
