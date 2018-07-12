@@ -35,8 +35,8 @@ end
 
 M.caller = function (label)
 	label = tostring(label or '')
-	local callee_info = debug.getinfo(1)
-	local caller_info = debug.getinfo(2)
+	local callee_info = debug.getinfo(2)
+	local caller_info = debug.getinfo(3)
 	local msg = string.format("[LUAJ] [CALLER] %s called on line %s in %s", label, caller_info.currentline or '_', caller_info.short_src or '_')
 	file:write(msg .. "\n")
 	return file:flush()
