@@ -42,4 +42,14 @@ M.caller = function (label)
 	return file:flush()
 end
 
+M.space = function (n)
+	local n = math.abs(tonumber(n) or 1)
+	local str = '\n'
+	for i = 2,n do
+		str = str .. '\n'
+	end
+	file:write(str)
+	return file:flush()
+end
+
 return M

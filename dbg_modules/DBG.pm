@@ -11,7 +11,7 @@ use warnings;
 use Data::Dumper;
 use Carp qw(cluck);
 
-my $o_log_path = '/home/o.koshovets/_/logs/custom';
+my $o_log_path = '/home/okoshovets/_/logs/custom';
 
 sub olog {
 	my $msg = shift // '';
