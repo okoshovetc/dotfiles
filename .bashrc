@@ -9,33 +9,25 @@ if [ -f ~/.git-completion.bash ]; then
 	. ~/.git-completion.bash
 fi
 
-#colors
-GREEN="\[$(tput setaf 41)\]"
-RED="\[$(tput setaf 160)\]"
-YELLOW="\[$(tput setaf 227)\]"
-BLUE="\[$(tput setaf 33)\]"
-VIOLET="\[$(tput setaf 63)\]"
-LIGHT_BLUE="\[$(tput setaf 45)\]"
-ORANGE="\[$(tput setaf 172)\]"
-PINK="\[$(tput setaf 169)\]"
-WHITE="\[$(tput setaf 255)\]"
-GRAY="\[$(tput setaf 243)\]"
-#styles
-BOLD="\[$(tput bold)\]"
-RESET="\[$(tput sgr0)\]"
+PS1='>'
 
-PS1=\
-"${PINK}[\A] ${LIGHT_BLUE}\H \
-${GREEN}${BOLD}\u${RESET}\
-${ORANGE}@${BOLD}${PINK}\w\n\
-${PINK}${BOLD}>>>>${RESET}"
+if [ -f ~/.ps1 ]; then
+	. ~/.ps1
+fi
+
 
 PATH=$PATH:~/.PATH
+PATH=/usr/local/openresty/bin:$PATH
 EDITOR='vim'
 
 set -o vi
 
 export PS1
+export PATH
 export TERM
 export EDITOR
 export LANG=en_US.UTF-8
+export PERL5LIB=~/.perl
+export PERLLIB=~/.perl
+export GOPATH=~/.go
+source /home/okoshovets/perl5/perlbrew/etc/bashrc

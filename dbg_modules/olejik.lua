@@ -9,6 +9,8 @@ M.dbg_file = "/home/okoshovets/_/logs/custom"
 local file   = io.open(M.dbg_file, "a")
 local unpack = unpack or table.unpack
 
+M.on = true;
+
 local function form_message (...)
 	local args = { ... }
 	local msg_format = string.format("[LUAJ] [%s] ", os.date("%Y-%m-%d %H:%M:%S", os.time()))  .. table.remove(args, 1)
@@ -21,6 +23,9 @@ local function form_error (err, msg_format)
 end
 
 M.log = function (...)
+	if not M.on then
+		return true
+	end
 	if not file then
 		return nil
 	end

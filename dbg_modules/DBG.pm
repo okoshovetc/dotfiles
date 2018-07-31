@@ -58,11 +58,11 @@ sub ocaller {
 }
 
 sub ocallerwarn {
-	oWarn(oCaller(shift));
+	oWarn(ocaller(shift));
 }
 
 sub ocallerlog {
-	_rawWrite(oCaller(shift));
+	_rawWrite(ocaller(shift));
 }
 sub _formMesage {
 	return '[PERL] ' . (shift) . "\n";
