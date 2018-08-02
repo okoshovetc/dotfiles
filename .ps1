@@ -14,7 +14,7 @@ BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1=\
-"${PINK}[\A] ${BLUE}\H \
-${GREEN}${BOLD}\u${RESET}\
-${ORANGE}@${BLUE}\w\n\
-${PINK}${BOLD}>>>>${RESET}"
+"${ORANGE}[\A] ${VIOLET}\H \
+${VIOLET}${BOLD}\u${RESET}\
+${ORANGE}@${GREEN}\w\n\
+${VIOLET}${BOLD}>>>>${RESET}"
