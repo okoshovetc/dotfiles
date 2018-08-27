@@ -17,4 +17,4 @@ PS1=\
 "${ORANGE}[\A] ${VIOLET}\H \
 ${VIOLET}${BOLD}\u${RESET}\
 ${ORANGE}@${GREEN}\w\n\
-${VIOLET}${BOLD}>>>>${RESET}"
+${VIOLET}${BOLD}\$ ${RESET}"
