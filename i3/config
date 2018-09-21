@@ -218,6 +218,8 @@ bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.1 && setxkbmap -layout
 bindsym $mod+t exec ~/Downloads/Telegram/Telegram
 
 bindsym $mod+i exec "i3-input"
+bindsym $mod+n workspace next
+bindsym $mod+Shift+n workspace prev
 
 exec_always "setxkbmap -layout us,ru -option 'grp:caps_toggle'"
 exec_always "xrandr --output $monitor2 --mode 1920x1080 --above $monitor1 --output $monitor3 --mode 1920x1080 --above $monitor2"
