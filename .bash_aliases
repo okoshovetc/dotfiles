@@ -15,3 +15,6 @@ alias mygrep="color --config ~/scripts/mygrep.conf"
 alias tmux="tmux -2 -u"
 alias gotmux="~/gotmux.sh"
 alias gus="git status"
+alias sun="sort | uniq"
+alias sunc="sort | uniq -c"
+
