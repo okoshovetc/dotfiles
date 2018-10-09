@@ -15,8 +15,10 @@ if [ -f ~/.ps1 ]; then
 	. ~/.ps1
 fi
 
-ssh-add -k
-ssh-add -k ~/.ssh/gitlab.rsa
+if [ 0 == $(ssh-add -l | wc -l) ]; then
+	ssh-add -k
+	ssh-add -k ~/.ssh/gitlab.rsa
+fi
 
 PATH=$PATH:~/.PATH
 PATH=/usr/local/openresty/bin:$PATH
