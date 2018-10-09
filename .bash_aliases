@@ -17,4 +17,5 @@ alias gotmux="~/gotmux.sh"
 alias gus="git status"
 alias sun="sort | uniq"
 alias sunc="sort | uniq -c"
-
+alias 3mon="xrandr --output DP-1 --above eDP-1 --mode 1920x1080 --output HDMI-2 --above DP-1 --mode 1920x1080"
+alias 1mon="xrandr --output DP-1 --off --output HDMI-2 --off"
