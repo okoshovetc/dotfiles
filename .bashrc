@@ -15,7 +15,7 @@ if [ -f ~/.ps1 ]; then
 	. ~/.ps1
 fi
 
-if [ 0 == $(ssh-add -l | wc -l) ]; then
+if [ 0 == $(ssh-add -l | grep -v 'no identities' | wc -l) ]; then
 	ssh-add -k
 	ssh-add -k ~/.ssh/gitlab.rsa
 fi
