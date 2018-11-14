@@ -221,6 +221,6 @@ bindsym $mod+i exec "i3-input"
 bindsym $mod+n workspace next
 bindsym $mod+Shift+n workspace prev
 
-exec_always "setxkbmap -layout us,ru -option 'grp:caps_toggle'"
+exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' -option 'caps:ctrl_modifier'"
 exec_always "xrandr --output $monitor2 --mode 1920x1080 --above $monitor1 --output $monitor3 --mode 1920x1080 --above $monitor2"
 exec_always "feh --bg-scale ~/.config/i3/wallpapers/_downloadfiles_wallpapers_3840_2160_android_mountains_14719.jpg"
