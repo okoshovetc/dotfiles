@@ -10,7 +10,9 @@ end
 
 call plug#begin($VIM_PATH . "plugged")
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'vim-scripts/gtags.vim'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'itchyny/lightline.vim'
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
@@ -71,10 +73,12 @@ nmap gb gT
 nmap gm `
 
 "mappings for terminal
-tnoremap <C-q> <C-\><C-N>
-tnoremap <A-q> <C-\><C-N>
-tnoremap <A-j> <C-\><C-N>gT
-tnoremap <A-k> <C-\><C-N>gt
+if has('nvim')
+	tnoremap <C-q> <C-\><C-N>
+	tnoremap <A-q> <C-\><C-N>
+	tnoremap <A-j> <C-\><C-N>gT
+	tnoremap <A-k> <C-\><C-N>gt
+end
 
 "folding
 set foldmethod=indent
@@ -94,8 +98,8 @@ set iminsert=0
 set imsearch=0
 
 "commands to launch prepared scripts
-command! E1 w | exec "! clear && ~/.config/nvim/prepared_scripts/1.sh"
-command! E2 w | exec "! clear && ~/.config/nvim/prepared_scripts/2.sh"
-command! E3 w | exec "! clear && ~/.config/nvim/prepared_scripts/3.sh"
-command! E4 w | exec "! clear && ~/.config/nvim/prepared_scripts/4.sh"
-command! E5 w | exec "! clear && ~/.config/nvim/prepared_scripts/5.sh"
+command! E1 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/1.sh"
+command! E2 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/2.sh"
+command! E3 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/3.sh"
+command! E4 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/4.sh"
+command! E5 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/5.sh"
