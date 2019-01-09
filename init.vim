@@ -9,14 +9,18 @@ if has('nvim')
 end
 
 call plug#begin($VIM_PATH . "plugged")
-	Plug 'kien/ctrlp.vim'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'https://gitlab.com/okoshovets/yvcs'
 call plug#end()
 
-let g:ctrlp_working_path_mode = 0
+"---------------------
+"-- PLUGIN BINDINGS --
+"---------------------
+
+nmap <C-p> :FZF<CR>
 
 "------------
 "-- BASICS --
@@ -65,6 +69,13 @@ nmap <F6> <C-w><C-]><C-w>T
 nmap gb gT
 nmap gm `
 
+"mappings for terminal
+tnoremap <C-q> <C-\><C-N>
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+
 "folding
 set foldmethod=indent
 
@@ -81,7 +92,6 @@ vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
 
 "commands to launch prepared scripts
 command! E1 w | exec "! clear && ~/.config/nvim/prepared_scripts/1.sh"
