@@ -10,6 +10,7 @@ end
 
 call plug#begin($VIM_PATH . "plugged")
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'airblade/vim-gitgutter'
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
@@ -71,10 +72,9 @@ nmap gm `
 
 "mappings for terminal
 tnoremap <C-q> <C-\><C-N>
-tnoremap <A-h> <C-\><C-N><C-w>h
-tnoremap <A-j> <C-\><C-N><C-w>j
-tnoremap <A-k> <C-\><C-N><C-w>k
-tnoremap <A-l> <C-\><C-N><C-w>l
+tnoremap <A-q> <C-\><C-N>
+tnoremap <A-j> <C-\><C-N>gT
+tnoremap <A-k> <C-\><C-N>gt
 
 "folding
 set foldmethod=indent
