@@ -23,8 +23,10 @@ fi
 PATH=$PATH:~/.PATH
 PATH=/usr/local/openresty/bin:$PATH
 EDITOR='vim'
-if [ 1 == $(which nvim | wc -l) ]; then
+if [ 1 == $(which --skip-alias 2>/dev/null nvim | wc -l) ]; then
 	EDITOR='nvim'
+else
+	alias nvim='vim'
 fi
 
 set -o vi
