@@ -16,7 +16,7 @@ call plug#begin($VIM_PATH . "plugged")
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
-	Plug 'https://gitlab.com/okoshovets/yvcs'
+	Plug 'https://gitlab.com/okoshovets/yvcs.git'
 call plug#end()
 
 "--------------------------------
@@ -45,6 +45,9 @@ set showcmd
 "-------------
 "-- VISUALS --
 "-------------
+
+"vim non-default setting
+set wildmenu
 
 "colors
 colorscheme yvpale
