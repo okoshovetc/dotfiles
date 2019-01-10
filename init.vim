@@ -39,6 +39,7 @@ set laststatus=2
 set lazyredraw
 set cursorline
 set showcmd
+set wildmenu
 
 
 "-------------
