@@ -53,6 +53,23 @@ colorscheme yvpale
 set listchars=tab:>.,trail:.
 set list
 
+"statusline config
+let g:lightline = {
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'readonly', 'filename' ] ],
+	\ },
+	\ 'component_function': {
+	\   'filename': 'LightlineFilename',
+	\ },
+	\ }
+
+function! LightlineFilename()
+	let filename = expand('%:t') !=# '' ? expand('%') : '[No Name]'
+	let modified = &modified ? ' +' : ''
+	return filename . modified
+endfunction
+
 "------------------------
 "-- MOVEMENTS AND TOOLS --
 "------------------------
