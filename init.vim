@@ -19,11 +19,12 @@ call plug#begin($VIM_PATH . "plugged")
 	Plug 'https://gitlab.com/okoshovets/yvcs'
 call plug#end()
 
-"---------------------
-"-- PLUGIN BINDINGS --
-"---------------------
+"--------------------------------
+"-- PLUGIN BINDINGS AND TUNING --
+"--------------------------------
 
 nmap <C-p> :FZF<CR>
+let $FZF_DEFAULT_COMMAND = "find . -type f -not -path '*/\.git/*'"
 
 "------------
 "-- BASICS --
@@ -39,7 +40,6 @@ set laststatus=2
 set lazyredraw
 set cursorline
 set showcmd
-set wildmenu
 
 
 "-------------
