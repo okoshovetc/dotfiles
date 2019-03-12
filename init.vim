@@ -53,7 +53,7 @@ set wildmenu
 colorscheme yvpale
 
 "nice tool to trace tabs and eols
-set listchars=tab:>.,trail:.
+set listchars=tab:\|.,trail:.
 set list
 
 "statusline config
@@ -80,8 +80,8 @@ endfunction
 "basic movement mappings
 nmap <C-k> kzz
 nmap <C-j> jzz
-nmap <A-k> zk
-nmap <A-j> zj
+nmap <A-k> zkzz
+nmap <A-j> zjzz
 
 "mappings for tabs
 "no mapping for tabnew because idk
