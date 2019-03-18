@@ -12,9 +12,11 @@ GRAY="\[$(tput setaf 243)\]"
 #styles
 BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
+ES='\[$(es=$?; if [[ $es != 0 ]]; then echo "[$es] "; fi)\]'
+
 
 PS1=\
 "${ORANGE}[\A] ${VIOLET}\H \
 ${VIOLET}${BOLD}\u${RESET}\
 ${ORANGE}@${GREEN}\w\n\
-${VIOLET}${BOLD}\$ ${RESET}"
+${ES}${VIOLET}${BOLD}\$ ${RESET}"
