@@ -18,5 +18,5 @@ ES='\[$(es=$?; if [[ $es != 0 ]]; then echo "[$es] "; fi)\]'
 PS1=\
 "${ORANGE}[\A] ${VIOLET}\H \
 ${VIOLET}${BOLD}\u${RESET}\
-${ORANGE}@${GREEN}\w\n\
-${ES}${VIOLET}${BOLD}\$ ${RESET}"
+${ORANGE}@${RED}${BOLD}${ES}${GREEN}\w\n\
+${VIOLET}${BOLD}\$ ${RESET}"

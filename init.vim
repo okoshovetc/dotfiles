@@ -110,6 +110,9 @@ set path+=**
 "fileencodings to use
 set fileencodings=utf8,cp1251
 
+"allowing pipelines in grep
+set grepprg=grep\ -n\ $*
+
 "workflow with system clipboard via ssh
 vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
 
