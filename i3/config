@@ -82,6 +82,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
 bindsym $mod+t split toggle
 
 # toggle tiling / floating
@@ -216,7 +217,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.2 && setxkbmap -layout us,ru && i3lock -c 000040"
 
-bindsym $mod+T exec ~/Downloads/Telegram/Telegram
+bindsym $mod+Shift+t exec ~/Downloads/Telegram/Telegram
 
 bindsym $mod+i exec "i3-input"
 bindsym $mod+n workspace next
