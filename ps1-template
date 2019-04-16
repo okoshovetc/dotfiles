@@ -1,0 +1,22 @@
+#colors
+GREEN="\[$(tput setaf 41)\]"
+RED="\[$(tput setaf 160)\]"
+YELLOW="\[$(tput setaf 227)\]"
+BLUE="\[$(tput setaf 33)\]"
+VIOLET="\[$(tput setaf 63)\]"
+LIGHT_BLUE="\[$(tput setaf 45)\]"
+ORANGE="\[$(tput setaf 172)\]"
+PINK="\[$(tput setaf 169)\]"
+WHITE="\[$(tput setaf 255)\]"
+GRAY="\[$(tput setaf 243)\]"
+#styles
+BOLD="\[$(tput bold)\]"
+RESET="\[$(tput sgr0)\]"
+ES='\[$(es=$?; if [[ $es != 0 ]]; then echo "[$es] "; fi)\]'
+
+
+PS1=\
+"${<C1>}[\A] ${<C2>}\H \
+${<C3>}${BOLD}\u${RESET}\
+${<C4>}@${<C5>}${BOLD}${ES}${<C6>}\w\n\
+${<C7>}${BOLD}\$ ${RESET}"

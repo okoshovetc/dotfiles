@@ -7,5 +7,8 @@ unpack_bash:
 	cp init.vim ~/.vimrc
 	cp -r .vim/autoload/ ~/.config/nvim/
 
+gen_ps1:
+	bash gen_ps1.sh
+
 unpack_i3:
 	@echo UNIMPLEMENTED
