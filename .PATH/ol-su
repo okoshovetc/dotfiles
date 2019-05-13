@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo HOME=$HOME su -m
