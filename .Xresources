@@ -1,62 +1,35 @@
+urxvt.foreground: 	#E8DFD6
+urxvt.background: 	#021B21
+urxvt.cursorColor:  #FEF3F0
+urxvt.color0:       #032C36
+urxvt.color8:       #065F73
+urxvt.color1:       #C2454E
+urxvt.color9:       #EF5847
+urxvt.color2:       #7CBF9E
+urxvt.color10:      #A2D9B1
+urxvt.color3:       #8A7A63
+urxvt.color11:      #BEB090
+urxvt.color4:       #2E3340
+urxvt.color12:      #61778D
+urxvt.color5:       #FF5879
+urxvt.color13:      #FF99A1
+urxvt.color6:       #44B5B1
+urxvt.color14:      #9ED9D8
+urxvt.color7:       #F2F1B9
+urxvt.color15:      #F6F6C9
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+! ================================================================================
+
 Xft.dpi: 96
 XTerm.termName: xterm-256color
-
-!! Colorscheme
-
-!!#000000000000
-!!#aaaa00000000
-!!#0000aaaa0000
-!!#aaaa55550000
-!!#00000000aaaa
-!!#aaaa0000aaaa
-!!#0000aaaaaaaa
-!!#aaaaaaaaaaaa
-!!#555555555555
-!!#ffff55555555
-!!#5555ffff5555
-!!#ffffffff5555
-!!#55555555ffff
-!!#ffff5555ffff
-!!#5555ffffffff
-!!#ffffffffffff
-
-
-! special
-*.foreground: #93a1a1
-*.background: #232626
-*.cursorColor: #afbfbf
-
-! black
-*.color0: #263640
-*.color8: #4a697d
-
-! red
-*.color1: #d12f2c
-*.color9: #fa3935
-
-! green
-*.color2: #819400
-*.color10: #a4bd00
-
-! yellow
-*.color3: #b08500
-*.color11: #d9a400
-
-! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
-
-! magenta
-*.color5: #696ebf
-*.color13: #8086e8
-
-! cyan
-*.color6: #289c93
-*.color14: #33c5ba
-
-! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
 
 !! URxvt Appearance
 URxvt.font: xft:Envy Code R:size=16

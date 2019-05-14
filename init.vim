@@ -50,7 +50,7 @@ set showcmd
 set wildmenu
 
 "colors
-colorscheme yvpale
+colorscheme yvblue
 
 "nice tool to trace tabs and eols
 set listchars=tab:\|.,trail:.
