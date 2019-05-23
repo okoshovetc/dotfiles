@@ -13,6 +13,7 @@ call plug#begin($VIM_PATH . "plugged")
 	Plug 'vim-scripts/gtags.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'itchyny/lightline.vim'
+	Plug 'vim-syntastic/syntastic'
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
@@ -22,6 +23,16 @@ call plug#end()
 "--------------------------------
 "-- PLUGIN BINDINGS AND TUNING --
 "--------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 nmap <C-p> :FZF<CR>
 let $FZF_DEFAULT_COMMAND = "find . -type f -not -path '*/\.git/*'"
@@ -120,6 +131,12 @@ vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+
+"trying out leader workflow
+let mapleader=" "
+nmap <Leader><Space> :lclose<CR>
+nmap <Leader>n :cnext<CR>
+nmap <Leader>p :cprevious<CR>
 
 "commands to launch prepared scripts
 command! E1 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/1.sh"
