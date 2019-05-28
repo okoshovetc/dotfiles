@@ -15,8 +15,16 @@ RESET="\[$(tput sgr0)\]"
 ES='\[$(es=$?; if [[ $es != 0 ]]; then echo "[$es] "; fi)\]'
 
 
+if [ $(whoami) == 'root' ]; then
+PS1=\
+"${RED}[\A] ${RED}\H \
+${RED}${BOLD}\u${RESET}\
+${RED}@${RED}${BOLD}${ES}${RED}\w\n\
+${RED}${BOLD}\$ ${RESET}"
+else
 PS1=\
 "${<C1>}[\A] ${<C2>}\H \
 ${<C3>}${BOLD}\u${RESET}\
 ${<C4>}@${<C5>}${BOLD}${ES}${<C6>}\w\n\
 ${<C7>}${BOLD}\$ ${RESET}"
+fi
