@@ -134,7 +134,8 @@ set imsearch=0
 
 "trying out leader workflow
 let mapleader=" "
-nmap <Leader><Space> :lclose<CR>
+nmap <Leader><Space> :lclose<CR>:cclose<CR>zz
+nmap <Leader>w <C-w><C-w>
 nmap <Leader>n :cnext<CR>
 nmap <Leader>p :cprevious<CR>
 
