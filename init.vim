@@ -136,8 +136,8 @@ set imsearch=0
 let mapleader=" "
 nmap <Leader><Space> :lclose<CR>:cclose<CR>zz
 nmap <Leader>w <C-w><C-w>
-nmap <Leader>n :cnext<CR>
-nmap <Leader>p :cprevious<CR>
+nmap <Leader>n :cnext<CR>zO
+nmap <Leader>p :cprevious<CR>zO
 
 "commands to launch prepared scripts
 command! E1 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/1.sh"
