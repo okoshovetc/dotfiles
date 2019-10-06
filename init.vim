@@ -112,6 +112,10 @@ if has('nvim')
 	tnoremap <A-k> <C-\><C-N>gt
 end
 
+"change moves do not affect my "register
+nnoremap c "_c
+nnoremap C "_C
+
 "folding
 set foldmethod=indent
 
