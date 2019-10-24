@@ -38,6 +38,10 @@ bindsym Ctrl+Mod1+T exec urxvt
 bindsym $mod+Shift+q kill
 bindsym Mod1+F4 kill
 
+# my dmenu/rofi scripts
+bindsym $mod+s      exec ol-ssh
+bindsym $mod+Shifts exec ol-tmux
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -l 10
 bindsym Mod1+F3 exec rofi

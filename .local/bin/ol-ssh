@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+SSH_POINT=$(cat $HOME/.ssh/config  | grep ^Host | perl -lnae 'print "$F[$_]" for 1..@F' | grep -v ^$  | rofi -dmenu -levenshtein-sort -l 30 -p "SSH to ")
+#SSH_POINT=$(cat $HOME/.ssh/config  | grep ^Host | perl -lnae 'print "$F[$_]" for 1..@F' | grep -v ^$  | dmenu  -l 30 -p "SSH to")
+
+urxvt -e "bash" -c "ssh $SSH_POINT" &
