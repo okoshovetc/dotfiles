@@ -231,6 +231,7 @@ exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' -option 'cap
 #exec_always "setxkbmap -layout us,ru"
 exec_always "xrandr --output $monitor2 --mode 1920x1080 --above $monitor1 --output $monitor3 --mode 1920x1080 --above $monitor2"
 exec_always "feh --bg-scale ~/.config/i3/wallpapers/fuji.jpg"
+exec_always "xset r rate 200 50"
 
 gaps inner 10
 smart_gaps on
