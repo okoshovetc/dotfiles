@@ -1,6 +1,7 @@
 if has('nvim')
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
-	set guicursor=
+	" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+	" set guicursor=
+	set wildmode=list:full
 end
 
 let $VIM_PATH = "~/.vim/"
@@ -11,14 +12,21 @@ end
 call plug#begin($VIM_PATH . "plugged")
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'vim-scripts/gtags.vim'
+	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	Plug 'airblade/vim-gitgutter'
 	Plug 'itchyny/lightline.vim'
 	Plug 'vim-syntastic/syntastic'
+	Plug 'fatih/vim-go'
 	"colorschemes
 	Plug 'fsrc/lyla-vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'https://gitlab.com/okoshovets/yvcs.git'
+	" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+	Plug 'teal-language/vim-teal'
 call plug#end()
+
+let $NVIM_COC_LOG_LEVEL = 'debug'
 
 "--------------------------------
 "-- PLUGIN BINDINGS AND TUNING --
@@ -32,6 +40,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_lua_checkers = ["luacheck"]
+let g:syntastic_lua_luacheck_args = "--no-unused-args"
 
 
 nmap <C-p> :FZF<CR>
@@ -61,10 +72,15 @@ set showcmd
 set wildmenu
 
 "colors
-colorscheme yvblue
+"colorscheme yvcs
+
+" if no colorscheme chosen I do not want to see
+" default ugly folded text and cursorline
+hi Folded ctermfg=none ctermbg=none cterm=none"
+hi CursorLine cterm=bold"
 
 "nice tool to trace tabs and eols
-set listchars=tab:\|.,trail:.
+set listchars=tab:\|\.,trail:.
 set list
 
 "statusline config
@@ -126,10 +142,10 @@ set path+=**
 set fileencodings=utf8,cp1251
 
 "allowing pipelines in grep
-set grepprg=grep\ -n\ $*
+set grepprg=grep\ -nI\ $*
 
 "workflow with system clipboard via ssh
-vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
+" vnoremap <C-c> :w !~/dotfiles/xssh/xsend <CR><CR>
 
 "this is promissing to fix problem with cyrillic
 set keymap=russian-jcukenwin
@@ -143,12 +159,79 @@ nmap <Leader>w <C-w><C-w>
 nmap <Leader>n :cnext<CR>zO
 nmap <Leader>p :cprevious<CR>zO
 
-"autocompletion
+"completion
 set completeopt=longest,menuone
 
-"commands to launch prepared scripts
-command! E1 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/1.sh"
-command! E2 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/2.sh"
-command! E3 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/3.sh"
-command! E4 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/4.sh"
-command! E5 w | exec "! clear && " . $VIM_PATH . "prepared_scripts/5.sh"
+"augroup go
+"	autocmd!
+"
+"	" Show by default 4 spaces for a tab
+"	autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+"
+"	" Check syntax on write
+"	autocmd BufWritePost *.go GoBuild
+"
+"	" :GoBuild and :GoTestCompile
+"	autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+"
+"	" :GoTest
+"	autocmd FileType go nmap <leader>t  <Plug>(go-test)
+"
+"	" :GoRun
+"	"autocmd FileType go nmap <leader>r  <Plug>(go-run)
+"
+"	" :GoCoverageToggle
+"	autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+"
+"	" :GoInfo
+"	autocmd FileType go nmap <Leader>w <Plug>(go-info)
+"
+"	" :GoMetaLinter
+"	autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+"
+"	" :GoDef but opens in a vertical split
+"	" autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+"	" :GoDef but opens in a horizontal split
+"	" autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+"
+"	" :GoAlternate  commands :A, :AV, :AS and :AT
+"	autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+"	autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+"	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+"	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+"augroup END
+
+" go-vim
+let g:go_template_autocreate = 0
+let g:go_fmt_command = "goimports"
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" let g:go_metalinter_command='golangci-lint'
+
+" fix folds on write
+let g:go_fmt_experimental = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_type_info = 0
+let g:go_gopls_enabled = 0
+
+" set clipboard+=unnamedplus
+" let g:loaded_clipboard_provider = 1
+
+set splitright
+
+nmap <leader>v  <C-w>v<Plug>(coc-definition)
+nmap <leader>i  <C-w>v<C-w>T<Plug>(coc-definition)
+nmap <leader>d  <Plug>(coc-definition)
+nmap <leader>a  <Plug>(coc-implementation)
+nmap <leader>u  <Plug>(coc-references)
+nmap <leader>r  <Plug>(coc-rename)
+nmap <leader>e  <Plug>(go-run)
+
+imap <C-Space> <Esc>
