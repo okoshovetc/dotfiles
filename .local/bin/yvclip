@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -euo pipefail
+
+export SSDB_DATABASE=clipboard
+
+mode="${1:-load}"
+
+if [ "$mode" == 'load' ]; then
+	clipname=$(ssdb ls | yvrofi -i -p 'Choose a clip: ')
+	if [ -z "$clipname" ]; then
+		echo "Clipname empty"
+		exit 1
+	fi
+	ssdb copy "$clipname"
+	exit 0
+fi
+
+if [ "$mode" == 'save' ]; then
+	clipname=$(printf '' | yvrofi -width 40 -i -p 'Choose a clip name: ' | sed 's/\s/_/g')
+	ssdb paste "$clipname"
+fi
+
+if [ "$mode" == 'truncate' ]; then
+	ssdb truncate
+fi

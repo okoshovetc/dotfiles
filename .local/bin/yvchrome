@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chromium-browser --disable-web-security --ignore-certificate-errors --user-data-dir="/tmp/chromedev"

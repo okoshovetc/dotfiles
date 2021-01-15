@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -euo pipefail
+
+link=$(ssdb -D links get "$(ssdb -D links list | sort | yvrofi -l 30 -p "Choose link " -i)")
+
+[ -z "$link" ] && exit 1
+
+# chromium-browser --new-window "$link"
+if [[ "$link" =~ atlassian ]]; then
+	chromium-browser --new-window "$link"
+	exit 0
+fi
+
+if [[ "$link" =~ octavius ]]; then
+	chromium-browser --new-window "$link"
+	exit 0
+fi
+
+if [[ "$link" =~ calendar.mail.ru ]]; then
+	chromium-browser --new-window "$link"
+	exit 0
+fi
+
+brave-browser --new-window "$link"

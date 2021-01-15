@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+#SESSION=$(tmux ls | dmenu -l 30 | perl -lnae 'print $F[0] =~ s/(.*).$/$1/r');
+CONTATINER=$(docker ps --format '{{.Names}}' | sort | yvrofi -l 30 -levenshtein-sort -p  "Choose your docker container " -i)
+#SESSION=$(tmux ls | rofi -dmenu -l 30 -levenshtein-sort -p "Choose your tmux session " -i | perl -lnae 'print $F[0] =~ s/(.*).$/$1/r');
+
+# urxvt -e bash -c "docker exec -ti $CONTATINER bash"
+# st bash -c "docker exec -ti $CONTATINER bash"
+urxvt -e docker exec -ti "$CONTATINER" bash

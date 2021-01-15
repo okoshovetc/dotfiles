@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+alacritty -e sh -c "ssdb -D password -r copy $(ssdb -D password l | yvrofi)"

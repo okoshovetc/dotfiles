@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -euo pipefail
+
+c=$(printf '```%s```' "$(xsel -o --clipboard)")
+echo "$c" | xsel -i --clipboard

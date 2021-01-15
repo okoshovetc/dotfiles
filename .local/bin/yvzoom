@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -euo pipefail
+
+set -x
+
+url=$(ssdb -D zoom list | sort | yvrofi -p "Choose zoom " -i)
+
+killall zoom || true
+sleep 0.1
+
+if [ "$url" == "zoom" ]; then
+	zoom
+	exit 0
+fi
+
+if [ "$url" == 'zoomclip' ]; then
+	zoom "--url=$(xsel -o --clipboard)"
+fi
+
+zoom "--url=$(ssdb -D zoom get "$url")"
