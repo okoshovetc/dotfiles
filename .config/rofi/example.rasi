@@ -1,0 +1,20 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! Use extended color scheme                         text-color                back-color  selected-text-color
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   argb:00000000,  #d6e0f0 , argb:00000000,  #d8dee9 ,  #2e3440
+! Color scheme for active row
+rofi.color-active:                   argb:00000000,  #8d93ab , argb:00000000,  #8d93ab ,  #f1f3f8
+! Color scheme window
+rofi.color-window:                   argb:ee2e3440,  #d8dee9 ,  #d8dee9
+! Separator style (none, dash, solid)
+rofi.separator-style:                solid
+
+rofi.fake-transparency:              true
+rofi.dpi:                            -1
+rofi.hide-scrollbar:                 true
+rofi.line-margin:                    6
+rofi.width:                          20
+rofi.padding:                        30
