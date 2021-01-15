@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -eu
-set -o pipefail
-
-#SESSION=$(tmux ls | dmenu -l 30 | perl -lnae 'print $F[0] =~ s/(.*).$/$1/r');
-SESSION=$(tmux ls | rofi -dmenu -l 30 -levenshtein-sort -p "Choose your tmux session " | perl -lnae 'print $F[0] =~ s/(.*).$/$1/r');
-
-urxvt -e bash -c "tmux a -t $SESSION"

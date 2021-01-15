@@ -1,3 +1,0 @@
-#!/bin/bash
-
-perl -MJSON::XS -lne 'print JSON::XS->new()->pretty()->encode(JSON::XS->new()->decode($_))'
