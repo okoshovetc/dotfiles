@@ -1,9 +1,11 @@
-TERM="screen-256color"
+TERM="xterm-256color"
 
 #load aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+[ -f ~/.bash_functions ] && . ~/.bash_functions
 
 if [ -f ~/.git-completion.bash ]; then
 	. ~/.git-completion.bash
@@ -15,18 +17,17 @@ if [ -f ~/.ps1 ]; then
 	. ~/.ps1
 fi
 
-if [ 0 == $(ssh-add -l | grep -v 'no identities' | wc -l) ]; then
-	ssh-add -k
-	ssh-add -k ~/.ssh/gitlab.rsa
-fi
+# # TODO remove 2>/dev/null and fix the problem with failing to connect to auth agent
+# if [ 0 == "$(ssh-add -l 2>/dev/null | grep -vc 'no identities')" ]; then
+# 	ssh-add -k 2>/dev/null
+# 	ssh-add -k ~/.ssh/gitlab.rsa 2>/dev/null
+# fi
 
 PATH=$PATH:~/.PATH
 PATH=/usr/local/openresty/bin:$PATH
 EDITOR='vim'
-if [ 1 == $(which --skip-alias 2>/dev/null nvim | wc -l) ]; then
+if [ 1 == "$(which nvim | wc -l)" ]; then
 	EDITOR='nvim'
-else
-	alias nvim='vim'
 fi
 
 set -o vi
@@ -35,15 +36,13 @@ export PS1
 export PATH
 export TERM
 export EDITOR
-export PERL5LIB=~/.perl
-export PERLLIB=~/.perl
 export GOPATH=~/.go
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-source /home/okoshovets/perl5/perlbrew/etc/bashrc
 
-PATH="/home/okoshovets/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/okoshovets/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/okoshovets/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/okoshovets/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/okoshovets/perl5"; export PERL_MM_OPT;
+PATH="${PATH}:$GOPATH/bin"
+export PATH="$PATH"
+
+export SSDB_DEBUG=
+
+export PYTHONSTARTUP=~/.pythonrc

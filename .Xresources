@@ -1,44 +1,47 @@
-!urxvt.foreground: 	#E8DFD6
-!urxvt.background: 	#021B21
-!urxvt.cursorColor:  #FEF3F0
-!urxvt.color0:       #032C36
-!urxvt.color8:       #065F73
-!urxvt.color1:       #C2454E
-!urxvt.color9:       #EF5847
-!urxvt.color2:       #7CBF9E
-!urxvt.color10:      #A2D9B1
-!urxvt.color3:       #8A7A63
-!urxvt.color11:      #BEB090
-!urxvt.color4:       #2E3340
-!urxvt.color12:      #61778D
-!urxvt.color5:       #FF5879
-!urxvt.color13:      #FF99A1
-!urxvt.color6:       #44B5B1
-!urxvt.color14:      #9ED9D8
-!urxvt.color7:       #F2F1B9
-!urxvt.color15:      #F6F6C9
+urxvt.foreground: 	#E8DFD6
+urxvt.background: 	#021B21
+urxvt.cursorColor:  #FEF3F0
+urxvt.color0:       #032C36
+urxvt.color8:       #065F73
+urxvt.color1:       #C2454E
+urxvt.color9:       #EF5847
+urxvt.color2:       #7CBF9E
+urxvt.color10:      #A2D9B1
+urxvt.color3:       #8A7A63
+urxvt.color11:      #BEB090
+urxvt.color4:       #2E3340
+urxvt.color12:      #61778D
+urxvt.color5:       #FF5879
+urxvt.color13:      #FF99A1
+urxvt.color6:       #44B5B1
+urxvt.color14:      #9ED9D8
+urxvt.color7:       #F2F1B9
+urxvt.color15:      #F6F6C9
 !
-!urxvt*transparent: true
-!urxvt*shading: 10
+urxvt*transparent: true
+urxvt*shading: 10
+!urxvt*blurRadius: 0
 
-#include ".Xresources.colors"
+!#include ".Xresources.colors"
 
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
-! ================================================================================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
+! ============================
 
 Xft.dpi: 96
 XTerm.termName: xterm-256color
 
 !! URxvt Appearance
-URxvt.font: xft:Envy Code R:size=15
+!URxvt.font: xft:Envy Code R:size=15
+URxvt.font: xft:Inconsolata:size=13
+!URxvt.font: xft:Terminus:size=16
 !!URxvt.boldFont: -*-rissole-*
 !!URxvt.italicFont: -*-rissole-*
 !!URxvt.boldItalicfont: -*-rissole-*
@@ -52,7 +55,7 @@ URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
-URxvt.depth: 24
+URxvt.depth: 90
 URxvt.iso14755: false
 
 !! Common Keybinds for Navigations
@@ -76,8 +79,8 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 !!URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !!URxvt.keysym.M-s: perl:keyboard-select:search
 !!URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.urlLauncher: firefox
+URxvt.urlLauncher: chromium-browser
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 
-#include ".Xresources.colors"
+!#include ".Xresources.colors"

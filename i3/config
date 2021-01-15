@@ -30,17 +30,24 @@ font pango:Envy Code R 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #81a1c1 #434c5e #ffffff #2e9ef4   #434c5e
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #bf616a #ffffff #bf616a   #bf616a
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 # start a terminal
+# set $terminal urxvt
+set $terminal alacritty
 bindsym $mod+Return exec xfce4-terminal
-bindsym Ctrl+Mod1+T exec urxvt
+bindsym Ctrl+Mod1+T exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym Mod1+F4 kill
-
-# my dmenu/rofi scripts
-bindsym $mod+s      exec ol-ssh
-bindsym $mod+Shifts exec ol-tmux
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -l 10
@@ -49,6 +56,8 @@ bindsym Mod1+F3 exec rofi
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop -l 10
+
+# my dmenu/rofi scripts
 
 # change focus
 bindsym $mod+h focus left
@@ -73,10 +82,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+Shift+v split h
-bindsym $mod+v split v
 
 # split in vertical orientation
 #bindsym Mod1+Shift+v split v
@@ -130,12 +135,12 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-workspace $workspace1 output $monitor1
 workspace $workspace3 output $monitor1
-workspace $workspace5 output $monitor1
-workspace $workspace7 output $monitor1
-workspace $workspace9 output $monitor1
 
+workspace $workspace1  output $monitor2
+workspace $workspace5  output $monitor2
+workspace $workspace7  output $monitor2
+workspace $workspace9  output $monitor2
 workspace $workspace2  output $monitor2
 workspace $workspace4  output $monitor2
 workspace $workspace6  output $monitor2
@@ -195,6 +200,15 @@ bar {
         position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
+        colors {
+                separator #b48ead
+                background #2e3440
+                statusline #dfdee9
+                focused_workspace #81a1c1 #81a1c1 #000000
+                active_workspace #333333 #333333 #888888
+                inactive_workspace #81a1c1 #333333 #f1f1f1
+                urgent_workspace #eb709b #eb709b #ffffff
+        }
 }
 
 bindsym $mod+shift+x exec i3lock
@@ -219,19 +233,46 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.2 && setxkbmap -layout us,ru && i3lock -c 000040"
+bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.2 && setxkbmap -layout us,ru && i3lock -c 2e3440 -d -I 120"
+# bindsym Ctrl+Mod1+l exec "setxkbmap -layout us && sleep 0.2 && setxkbmap -layout us,ru && /home/okoshovets/betterlockscreen/betterlockscreen -l dimblur"
 
-bindsym $mod+Shift+t exec ~/Downloads/Telegram/Telegram
+bindsym $mod+Shift+t exec /home/okoshovets/.local/bin/yvtgwrap
+bindsym $mod+z exec /home/okoshovets/.local/bin/yvzoom
+bindsym $mod+Shift+z exec /home/okoshovets/.local/bin/linkzoom
+
+bindsym $mod+o       exec /home/okoshovets/.local/bin/yvtmux
+bindsym $mod+Shift+o exec /home/okoshovets/.local/bin/yvssh
+
+bindsym $mod+c       exec /home/okoshovets/.local/bin/yvclip 'load'
+bindsym $mod+v       exec /home/okoshovets/.local/bin/yvclip 'save'
 
 bindsym $mod+i exec "i3-input"
 bindsym $mod+n workspace next
 bindsym $mod+Shift+n workspace prev
+bindsym $mod+q exec /home/okoshovets/.local/bin/yvlinks
+bindsym $mod+x exec /home/okoshovets/.local/bin/yvpass
+
+# bindsym $mod+Shift+w exec brave-browser
+bindsym Ctrl+Mod1+B exec brave-browser
 
 exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle' -option 'caps:ctrl_modifier'"
 #exec_always "setxkbmap -layout us,ru"
 exec_always "xrandr --output $monitor2 --mode 1920x1080 --above $monitor1 --output $monitor3 --mode 1920x1080 --above $monitor2"
-exec_always "feh --bg-scale ~/.config/i3/wallpapers/fuji.jpg"
-exec_always "xset r rate 200 50"
+#exec_always "feh --bg-scale ~/.config/i3/wallpapers/fuji.jpg"
+exec_always "feh --bg-scale ~/Downloads/graymountaion.png"
+exec_always "xset r rate 300 40"
+exec --no-startup-id nm-applet --sm-disable
 
-gaps inner 10
+# gaps inner 25
 smart_gaps on
+# border_radius 10
+
+for_window [class=".*"] border pixel 3 #*
+gaps inner 50
+# gaps outer 10
+# gaps horizontal 20
+
+################# i3-radius #######################
+smart_borders on
+smart_borders no_gaps
+border_radius 8
